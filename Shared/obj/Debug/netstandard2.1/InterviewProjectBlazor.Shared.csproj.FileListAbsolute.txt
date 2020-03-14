@@ -1,0 +1,8 @@
+C:\Development\Blazor\InterviewProjectBlazor\Shared\bin\Debug\netstandard2.1\InterviewProjectBlazor.Shared.deps.json
+C:\Development\Blazor\InterviewProjectBlazor\Shared\bin\Debug\netstandard2.1\InterviewProjectBlazor.Shared.dll
+C:\Development\Blazor\InterviewProjectBlazor\Shared\bin\Debug\netstandard2.1\InterviewProjectBlazor.Shared.pdb
+C:\Development\Blazor\InterviewProjectBlazor\Shared\obj\Debug\netstandard2.1\InterviewProjectBlazor.Shared.csprojAssemblyReference.cache
+C:\Development\Blazor\InterviewProjectBlazor\Shared\obj\Debug\netstandard2.1\InterviewProjectBlazor.Shared.AssemblyInfoInputs.cache
+C:\Development\Blazor\InterviewProjectBlazor\Shared\obj\Debug\netstandard2.1\InterviewProjectBlazor.Shared.AssemblyInfo.cs
+C:\Development\Blazor\InterviewProjectBlazor\Shared\obj\Debug\netstandard2.1\InterviewProjectBlazor.Shared.dll
+C:\Development\Blazor\InterviewProjectBlazor\Shared\obj\Debug\netstandard2.1\InterviewProjectBlazor.Shared.pdb

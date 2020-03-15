@@ -1,0 +1,70 @@
+@page "/playing-page"      
+    
+<h1>Playing page</h1>
+
+<div class="d-flex flex-row justify-content-around">
+     <div>
+          <div class="align-self-center">
+               @p1Result
+          </div>
+          <CardComponent PlayingCard="@p1PlayingCard"/>     
+     </div>
+     <div>
+          <div class="align-self-center">
+               @p2Result
+          </div>
+          <CardComponent PlayingCard="@p2PlayingCard"/>     
+     </div>
+</div>
+<button class="btn btn-primary" @onclick="PlayAgain" disabled="@IsPlayAgainDisabled">Play Again!</button>
+
+@code {
+     private Card p1PlayingCard;
+     private Card p2PlayingCard;
+
+     private Deck p1Deck = new Deck();
+     private Deck p2Deck = new Deck();
+     private string p1Result;
+     private string p2Result;     
+
+     public bool IsPlayAgainDisabled { get; set; }
+
+     protected override void OnInitialized()
+     {
+          this.DrawCards();
+          this.CalculateResult();
+     }
+
+     protected void DrawCards(){
+          try
+          {
+               this.p1PlayingCard = this.p1Deck.GetTypedCard(CardType.Person);
+               this.p2PlayingCard = this.p2Deck.GetTypedCard(CardType.Person);              
+          }
+          catch (InvalidOperationException)
+          {
+               this.IsPlayAgainDisabled = true;
+          }
+     }
+
+     public void CalculateResult()
+     {
+          if (p1PlayingCard.ResourceScore == p2PlayingCard.ResourceScore)
+               this.p1Result = this.p2Result = "Tie";
+          else if (p1PlayingCard.ResourceScore > p2PlayingCard.ResourceScore)
+          {
+               this.p1Result = "Win";
+               this.p2Result = "Lose";
+          }
+          else
+          {
+               this.p1Result = "Lose";
+               this.p2Result = "Win";
+          }
+     }
+     
+     private void PlayAgain(){
+          this.DrawCards();
+          this.CalculateResult();
+     }
+}

@@ -3,6 +3,10 @@
     /* background-color: green; */
 }
 
+.deck{
+    background-color: burlywood;
+}
+
 .parent {
     height: 50rem;
     color: red;

@@ -15,6 +15,7 @@ namespace InterviewProjectBlazor.Client
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddBaseAddressHttpClient();
+            builder.Services.AddSingleton<IEventService, RefreshRequest>();
 
             await builder.Build().RunAsync();
         }

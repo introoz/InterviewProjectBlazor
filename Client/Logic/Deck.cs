@@ -34,7 +34,7 @@ public class Deck
 
     public Card GetTypedCard(CardType type)
     {        
-            return this.Cards[type].Pop();                
+        return this.Cards[type].Pop();
     }
 
     public int GetDeckSize(CardType type){

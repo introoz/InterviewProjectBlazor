@@ -1,4 +1,5 @@
-@page "/playing-page"      
+@page "/playing-page"
+@inject IEventService Update;
     
 <h1>Playing page</h1>
 
@@ -7,13 +8,15 @@
           <div class="align-self-center">
                @p1Result
           </div>
-          <CardComponent PlayingCard="@p1PlayingCard"/>     
+          <CardComponent PlayingCard="@p1PlayingCard"/>
+          <DeckComponent Type="@chosenResource" BoundedDeck="@p1Deck"/>
      </div>
      <div>
           <div class="align-self-center">
                @p2Result
           </div>
-          <CardComponent PlayingCard="@p2PlayingCard"/>     
+          <CardComponent PlayingCard="@p2PlayingCard"/>
+          <DeckComponent Type="@chosenResource" BoundedDeck="@p2Deck"/> 
      </div>
 </div>
 <button class="btn btn-primary" @onclick="PlayAgain" disabled="@IsPlayAgainDisabled">Play Again!</button>
@@ -24,6 +27,8 @@
 
      private Deck p1Deck = new Deck();
      private Deck p2Deck = new Deck();
+     private CardType chosenResource;
+
      private string p1Result;
      private string p2Result;     
 
@@ -33,13 +38,15 @@
      {
           this.DrawCards();
           this.CalculateResult();
+          @* Update.Request += () => StateHasChanged(); *@
+          chosenResource = CardType.Person;
      }
 
      protected void DrawCards(){
           try
           {
-               this.p1PlayingCard = this.p1Deck.GetTypedCard(CardType.Person);
-               this.p2PlayingCard = this.p2Deck.GetTypedCard(CardType.Person);              
+               this.p1PlayingCard = this.p1Deck.GetTypedCard(chosenResource);
+               this.p2PlayingCard = this.p2Deck.GetTypedCard(chosenResource);              
           }
           catch (InvalidOperationException)
           {
@@ -66,5 +73,6 @@
      private void PlayAgain(){
           this.DrawCards();
           this.CalculateResult();
+          @* Update.CallRequest(); *@
      }
 }

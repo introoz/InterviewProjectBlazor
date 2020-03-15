@@ -1,0 +1,32 @@
+@inject IEventService Update;
+
+<div class="card deck">
+    <div class="card-body d-flex flex-column">
+        <div>
+            @Type
+        </div>
+        <div>
+            Cards left: @BoundedDeck.GetDeckSize(Type)
+        </div>
+    </div>
+</div>
+
+@code{
+
+    [Parameter]
+    public CardType Type{
+        get;
+        set;
+    }
+
+    [Parameter]
+    public Deck BoundedDeck{
+        get;
+        set;
+    }
+
+    protected override void OnInitialized()
+    {
+        @* Update.Request += () => StateHasChanged(); *@
+    }
+}
